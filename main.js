@@ -40,18 +40,51 @@ window.addEventListener('scroll', () => {
 // Adjust form iframe height dynamically based on content (Optional, but helps with UX)
 // For cross-origin iframe (Google Forms), we can't fully auto-resize, but we give it a good default height in CSS/HTML.
 
-// Retractable Sections Logic
-const toggleSections = document.querySelectorAll('.toggle-section');
+// Main Tabs Logic
+const mainTabBtns = document.querySelectorAll('.main-tab-btn');
+const mainTabContents = document.querySelectorAll('.main-tab-content');
 
-toggleSections.forEach(sectionTitle => {
-    sectionTitle.addEventListener('click', () => {
-        const icon = sectionTitle.querySelector('.toggle-icon');
-        let wrapper = sectionTitle.nextElementSibling;
+mainTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
         
-        if (wrapper && wrapper.classList.contains('section-content-wrapper')) {
-            wrapper.classList.toggle('collapsed');
-            if (icon) {
-                icon.classList.toggle('collapsed');
+        // Remove active class from all main buttons
+        mainTabBtns.forEach(b => b.classList.remove('active'));
+        
+        // Hide all main content sections
+        mainTabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show target content section
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    });
+});
+
+// Sync Navbar links with Main Tabs
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href').substring(1); // e.g., 'gescons'
+        
+        // Find if there is a main tab button for this section
+        const matchingTabBtn = document.querySelector(`.main-tab-btn[data-target="${targetId}"]`);
+        if (matchingTabBtn) {
+            e.preventDefault();
+            
+            // Programmatically click/activate the tab
+            matchingTabBtn.click();
+            
+            // Scroll to the main tabs container
+            const tabsContainer = document.querySelector('.main-tabs-container');
+            if (tabsContainer) {
+                tabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
     });
