@@ -63,6 +63,11 @@ mainTabBtns.forEach(btn => {
         const targetContent = document.getElementById(targetId);
         if (targetContent) {
             targetContent.classList.add('active');
+            
+            // Force reveal animations inside the active tab content
+            targetContent.querySelectorAll('.reveal').forEach(el => {
+                el.classList.add('active');
+            });
         }
     });
 });
