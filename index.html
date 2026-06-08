@@ -12,19 +12,6 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">G.A</div>
-            <ul class="nav-links">
-                <li><a href="#profile">Perfil</a></li>
-                <li><a href="#curriculum">Minicurrículo</a></li>
-                <li><a href="#gescons">Gescons</a></li>
-                <li><a href="#lives">Lives</a></li>
-                <li><a href="#tenepes">Solicitação de tenepes</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <main>
         <!-- Profile Section -->
         <section id="profile" class="section hero">
@@ -49,7 +36,8 @@
         <div class="main-tabs-container reveal">
             <div class="container">
                 <div class="main-tabs">
-                    <button class="main-tab-btn active" data-target="curriculum">Minicurrículo</button>
+                    <button class="main-tab-btn active" data-target="updates">Atualizações</button>
+                    <button class="main-tab-btn" data-target="curriculum">Minicurrículo</button>
                     <button class="main-tab-btn" data-target="gescons">Gescons</button>
                     <button class="main-tab-btn" data-target="lives">Lives</button>
                     <button class="main-tab-btn" data-target="tenepes">Solicitação de tenepes</button>
@@ -57,8 +45,34 @@
             </div>
         </div>
 
+        <!-- Updates Section -->
+        <section id="updates" class="section main-tab-content active">
+            <div class="container reveal">
+                <h2 class="section-title">Atualizações</h2>
+                <div class="section-content-wrapper">
+                    <div class="section-content">
+                        <p class="section-subtitle">Últimas novidades e atividades recentes</p>
+                        <div class="update-card">
+                            <div class="update-image">
+                                <img src="update_activity_photo.png" alt="Foto da Atividade">
+                            </div>
+                            <div class="update-info">
+                                <h3>Estatística Projeciológica</h3>
+                                <p class="update-meta"><i class="fa-regular fa-calendar-days"></i> <strong>Data e Horário:</strong> 08/06/2026 às 09:00</p>
+                                <p class="update-description">Apresentação da Tertúlia Matinal sobre o tema Estatística Projeciológica. Veja os slides da apresentação e o paper completo nos links abaixo.</p>
+                                <div class="update-links">
+                                    <a href="https://docs.google.com/presentation/d/1SVN8LrAsy9E3RwfMl7yA-sjUOTOc8HAgwnlK0fCAFD4/edit?usp=sharing" target="_blank" class="btn"><i class="fa-solid fa-play"></i> Apresentação</a>
+                                    <a href="https://www.tertuliarium.org/pdf/TM-440" target="_blank" class="btn btn-outline"><i class="fa-solid fa-file-pdf"></i> Paper</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Minicurriculum Section -->
-        <section id="curriculum" class="section main-tab-content active">
+        <section id="curriculum" class="section main-tab-content" style="display: none;">
             <div class="container reveal">
                 <h2 class="section-title">Minicurrículo</h2>
                 <div class="section-content-wrapper">
